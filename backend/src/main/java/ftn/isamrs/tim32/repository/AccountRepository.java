@@ -2,9 +2,11 @@ package ftn.isamrs.tim32.repository;
 
 
 import ftn.isamrs.tim32.model.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 

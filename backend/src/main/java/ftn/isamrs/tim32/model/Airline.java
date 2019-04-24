@@ -3,7 +3,6 @@ package ftn.isamrs.tim32.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import javax.validation.constraints.Null;
 import java.util.List;
 
 @Entity
@@ -15,43 +14,44 @@ public class Airline {
     private Long id;
 
     @Column(nullable = false)
-    String name;
+    private String name;
 
     @Column(nullable = false)
-    String address;
+    private String address;
 
-    @Column(nullable = false)
-    String opis;
+    @Column(nullable = true)
+    private String description;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "Airline", cascade = CascadeType.REMOVE)
-    List<Destination> destinationList;
+    @ManyToMany(mappedBy = "airline", cascade = CascadeType.REMOVE)
+    private List<Destination> destinations;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Airline", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.REMOVE)
     @JsonManagedReference
-    List<Flight> flightList;
+    private List<Flight> flights;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Airline", cascade = CascadeType.REMOVE)
-    List<Ticket> discountedTickets;
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.REMOVE)
+    private List<Ticket> tickets;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Airline", cascade = CascadeType.REMOVE)
-    List<Review> reviewList;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Airline", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "airline", cascade = CascadeType.REMOVE)
     @JsonManagedReference
-    List<AirlineAdmin> airlineAdminList;
+    private List<AirlineAdmin> airlineAdmins;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "airline", cascade = CascadeType.REMOVE)
+    private List<Review> review;
 
     public Airline(){
 
     }
-
-    public Airline(String name, String address, String opis, List<Destination> destinationList, List<Flight> flightList, List<Ticket> discountedTickets) {
+    public Airline(String name, String address, String description, List<Destination> destinations, List<Flight> flights,
+                   List<Ticket> tickets, List<AirlineAdmin> airlineAdmins, List<Review> review) {
         this.name = name;
         this.address = address;
-        this.opis = opis;
-        this.destinationList = destinationList;
-        this.flightList = flightList;
-        this.discountedTickets = discountedTickets;
+        this.description = description;
+        this.destinations = destinations;
+        this.flights = flights;
+        this.tickets = tickets;
+        this.airlineAdmins = airlineAdmins;
+        this.review = review;
     }
 
     public String getName() {
@@ -70,51 +70,51 @@ public class Airline {
         this.address = address;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public List<Destination> getDestinationList() {
-        return destinationList;
+    public List<Destination> getDestinations() {
+        return destinations;
     }
 
-    public void setDestinationList(List<Destination> destinationList) {
-        this.destinationList = destinationList;
+    public void setDestinations(List<Destination> destinations) {
+        this.destinations = destinations;
     }
 
-    public List<Flight> getFlightList() {
-        return flightList;
+    public List<Flight> getFlights() {
+        return flights;
     }
 
-    public void setFlightList(List<Flight> flightList) {
-        this.flightList = flightList;
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
     }
 
-    public List<Ticket> getDiscountedTickets() {
-        return discountedTickets;
+    public List<Ticket> getTickets() {
+        return tickets;
     }
 
-    public void setDiscountedTickets(List<Ticket> discountedTickets) {
-        this.discountedTickets = discountedTickets;
+    public void setTickets(List<Ticket> tickets) {
+        this.tickets = tickets;
     }
 
-    public List<Review> getReviewList() {
-        return reviewList;
+    public List<AirlineAdmin> getAirlineAdmins() {
+        return airlineAdmins;
     }
 
-    public void setReviewList(List<Review> reviewList) {
-        this.reviewList = reviewList;
+    public void setAirlineAdmins(List<AirlineAdmin> airlineAdmins) {
+        this.airlineAdmins = airlineAdmins;
     }
 
-    public List<AirlineAdmin> getAirlineAdminList() {
-        return airlineAdminList;
+    public List<Review> getReview() {
+        return review;
     }
 
-    public void setAirlineAdminList(List<AirlineAdmin> airlineAdminList) {
-        this.airlineAdminList = airlineAdminList;
+    public void setReview(List<Review> review) {
+        this.review = review;
     }
 }

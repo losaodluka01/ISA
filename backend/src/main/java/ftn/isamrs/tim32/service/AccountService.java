@@ -28,7 +28,6 @@ public interface AccountService {
     //List<HotelReservation> findAllHotelReservation(long id);
     //List<CarReservation> findAllCarReservation(long id);
 
-    //List<ShowReservation> findAllReservations(long id);
 
     String findEmailById(Long id);
 

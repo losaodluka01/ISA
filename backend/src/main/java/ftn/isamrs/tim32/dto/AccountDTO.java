@@ -16,7 +16,6 @@ public class AccountDTO implements Serializable {
 
     }
     public AccountDTO(Account account){
-        this.id = account.getId();
         this.name = account.getName();
         this.lastname = account.getLastname();
         this.email = account.getEmail();
