@@ -150,4 +150,11 @@ public class Account {
         this.points = points;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

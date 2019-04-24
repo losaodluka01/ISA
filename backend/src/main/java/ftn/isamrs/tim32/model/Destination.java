@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Destination")
+@Table(name = "destination")
 public class Destination {
 
     @Id
@@ -43,5 +43,21 @@ public class Destination {
 
     public void setAirline(List<Airline> airline) {
         this.airline = airline;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Flight> getFlight() {
+        return flight;
+    }
+
+    public void setFlight(List<Flight> flight) {
+        this.flight = flight;
     }
 }

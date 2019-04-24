@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Airline_Admin")
+@Table(name = "airline_Admin")
 public class AirlineAdmin extends Account {
 
     @ManyToOne
@@ -46,6 +46,10 @@ public class AirlineAdmin extends Account {
 
     public void setChangedPassword(boolean changedPassword) {
         this.changedPassword = changedPassword;
+
+
     }
+
+
 }
 

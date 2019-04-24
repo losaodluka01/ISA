@@ -3,7 +3,7 @@ package ftn.isamrs.tim32.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Ticket")
+@Table(name = "ticket")
 public class Ticket {
 
     @Id
@@ -63,5 +63,13 @@ public class Ticket {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
