@@ -1,0 +1,25 @@
+<div class="container">
+  <div id="all-airlines-container" class="all-airlines">
+    <div *ngFor="let airline of airlines" class="airline" id="airline_{{airline.id}}">
+      <div class="airline-details">
+        <div class="airline-image">
+          <img src={{airline.image}} *ngIf="airline.image">
+          <img src="../../../assets/images/userprofile.png" alt={{airline.name}}>
+        </div>
+        <div class="airline-info">
+          <a routerLink="/flights/{{airline.id}}" class="title"><span class="title-container">{{airline.name}}</span></a>
+          <div class="info">
+            <ul class="address">
+              <li class="lbl">
+                Address:
+              </li>
+              <li>
+                {{airline.address}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+.all-airlines .airline-details .airline-info,
+.all-airlines.airline .airline-details .airline-info {
+  padding-left: 15px;
+}
+
+.all-airlines .airline-details .airline-info {
+  display: table-cell;
+  margin-top: 0;
+}
+
+.all-airlines .airline-details .airline-info .info ul .lbl,
+.all-airlines.airline .airline-details .airline-info .info ul .lbl {
+  width: auto;
+}
+
+a { color: #003365; text-decoration: none; transition: all 0.3s ease; border-radius: 2px; }
+a:hover { color: #2d2d2d; text-decoration: none; }
+a:focus { outline: none; text-decoration: none; }
+strong { font-size: 700; }
+
+/* airline */
+.airline-image { position: relative; height: 420px; background-position: center top; background-repeat: no-repeat; background-size: cover; overflow: hidden; }
+
+.airline-info ul { display: table; width: 100%; margin: 0; padding: 0; list-style: none; }
+.airline-info ul li { display: table-cell; padding: 3px 0; vertical-align:middle; }
+.airline-info ul .lbl { width: 240px; white-space: nowrap; font-weight: 700; text-transform: uppercase; }
+.airline-info .push-top { margin-top: 16px; }
+
+.all-airlines .airline { padding: 48px 0; border-top: 1px dotted #333; }
+.all-airlines .airline:first-child { border-top: 0; }
+.all-airlines .airline-details { display: table; width: 90%; }
+.all-airlines .airline-details > div { display: table-cell; vertical-align: top; }
+.all-airlines .airline-details .airline-image { width: 200px; height: auto; }
+.all-airlines .airline-details .airline-info { padding-left: 40px; }
+.all-airlines .airline-details .airline-info .title { display: block; color: #2d2d2d; font-family: "Roboto condensed", "Arial Narrow", Arial, sans-serif; font-size: 26px; text-transform: uppercase; letter-spacing: -1px; line-height: 26px; }
+
+.all-airlines .airline-details .airline-info .title:hover { color: #003365; }
+.all-airlines .airline-details .airline-info .info { float: left; width: 80%; margin-top: 16px; }
+.all-airlines .airline-details .airline-info .info ul { font-size: 15px; }
+.all-airlines .airline-details .airline-info .info ul .lbl { width: 120px; }
