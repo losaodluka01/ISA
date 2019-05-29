@@ -1,0 +1,5 @@
+INSERT INTO ACCOUNT(ID, USERNAME, PASSWORD, CONFIRMED, EMAIL, LASTNAME, NAME) VALUES (750, 'Misk', 'miskmisk', TRUE, 'mihajlo.jovkovic@gmail.com', 'Jovkovic', 'Mihajlo')
+
+INSERT INTO AIRLINE(ID, ADDRESS, NAME) VALUES (10, 'Bulevar Patrijarha Pavla, Novi Sad', 'Misk Airline')
+
+INSERT INTO AIRLINE_ADMIN(ID, AIRLINE_ID, CHANGED_PASSWORD) VALUES(750, 10, TRUE)

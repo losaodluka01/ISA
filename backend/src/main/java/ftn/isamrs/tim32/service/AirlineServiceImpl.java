@@ -46,8 +46,8 @@ public class AirlineServiceImpl implements AirlineService {
 
         if(!air.isPresent()) return null;
 
-        Airline airline = air.get();
 
+        Airline airline = new Airline();
         airline.setAddress(dto.getAddress());
         airline.setName(dto.getName());
 

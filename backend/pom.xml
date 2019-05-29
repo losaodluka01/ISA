@@ -21,6 +21,8 @@
     </properties>
 
 
+
+
     <dependencies>
 
         <dependency>
@@ -98,7 +100,7 @@
             <version>1.1.1</version>
         </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>5.0.4.RELEASE</version>
@@ -108,7 +110,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>5.0.4.RELEASE</version>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework</groupId>
