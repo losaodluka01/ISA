@@ -1,0 +1,100 @@
+<nav class="navbar-darkblue">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse">
+
+      <!-- start of navbar left-->
+      <ul class="nav navbar-nav navbar-left">
+
+        <!-- start of home option -->
+        <li class="navbar-home">
+          <a routerLinkActive="active" routerLink="/home">
+            <span class="fa fa-home fa-lg"></span>
+          </a>
+        </li>
+        <li class="btn-group" dropdown *ngIf = "jwtService.tokenExist() && jwtService.hasRole('AIRLINE_ADMIN')">
+          <button id="button-classic" type="button" class="navbar-blue btn">
+            <a class="dropdown-item" routerLink="/cineter" style="color:black">My airline</a>
+          </button>
+        </li>
+        <li class="btn-group" dropdown *ngIf = "jwtService.tokenExist() && !jwtService.hasRole('AIRLINE_ADMIN')">
+            <button id="button-classic" dropdownToggle type="button" class="navbar-blue btn dropdown-toggle" aria-controls="dropdown-basic">
+              Admins <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" routerLink="/add_airline_admin">Add a new admin</a></li>
+            </ul>
+        </li>
+        <li class="btn-group" dropdown *ngIf = "jwtService.tokenExist() && !jwtService.hasRole('AIRLINE_ADMIN')">
+
+          <button id="button-basic" dropdownToggle type="button" class="navbar-blue btn dropdown-toggle" aria-controls="dropdown-basic">
+              Cinemas and theaters <span class="caret"></span>
+            </button>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" routerLink="/add_airline">Add a airline</a></li>
+              <li role="menuitem"><a class="dropdown-item" routerLink="/airlines">View all airlines</a></li>
+            </ul>
+        </li>
+        <li class="btn-group" dropdown *ngIf="jwtService.tokenExist()">
+            <button id="button-basic" dropdownToggle type="button" class="navbar-blue btn dropdown-toggle" aria-controls="dropdown-basic">
+              Shows and projections <span class="caret"></span>
+            </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+              <li role="menuitem"><a class="dropdown-item" routerLink="/add_flight">Add a new show</a></li>
+              <li role="menuitem"><a class="dropdown-item" routerLink="/admin_flights">View all shows</a></li>
+            </ul>
+        </li>
+        <li class="btn-group" dropdown *ngIf = "jwtService.tokenExist() && !jwtService.hasRole('AIRLINE_ADMIN')">
+            <button id="button-basic" dropdownToggle type="button" class="navbar-blue btn dropdown-toggle" aria-controls="dropdown-basic">
+              Props <span class="caret"></span>
+            </button>
+        </li>
+      <!-- end of home option -->
+      </ul>
+      <!-- end of navbar left -->
+
+      <!-- start of navbar right -->
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!jwtService.tokenExist()">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="!jwtService.tokenExist()">
+          <a routerLink="/register">Sign up</a>
+        </li>
+        <li class="navbar-personal-dropdown" dropdown *ngIf="jwtService.tokenExist()">
+          <a href dropdownToggle (click)="false">
+            {{ jwtService.getUsernameFromToken() }}
+            <span class="fa fa-caret-down"></span>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu" id="dropdownMenuPersonal">
+            <li>
+              <a routerLink="/profil">
+                <span class="fa fa-user"></span> Profile
+              </a>
+            </li>
+            <li>
+              <a routerLink="/profile">
+                <span class="fa fa-edit"></span> Edit profile info
+              </a>
+            </li>
+            <li>
+              <a routerLink="/change_password">
+                <span class="fa fa-expeditedssl"></span> Change password
+              </a>
+            </li>
+            <li *ngIf="jwtService.hasRole('ADMIN')">
+              <a routerLink="/admin_panel" >
+                <span class="fa fa-sliders"></span> Control panel
+              </a>
+            </li>
+            <li *ngIf="jwtService.tokenExist()">
+              <a (click)="logout()">
+                <span class="fa fa-sign-out"></span> Sign out
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- end of navbar right -->
+    </div>
+  </div>
+</nav>
